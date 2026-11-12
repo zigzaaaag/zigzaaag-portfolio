@@ -1,0 +1,77 @@
+/* Replace this one image URL to update every aligned photo layer. */
+:root {
+  --photograph: url("assets/photograph.jpg");
+  --photo-position: 50% 50%;
+  --blur: 17px;
+  --ink: #243943;
+  --reveal-width: min(84vw, 1080px);
+  --reveal-height: min(88vh, 820px);
+}
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; }
+body { overflow: hidden; background: #a8beca; color: var(--ink); font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif; font-size: 12px; font-weight: 400; -webkit-font-smoothing: antialiased; }
+a, button { color: inherit; -webkit-tap-highlight-color: transparent; }
+a { text-decoration: none; }
+button { padding: 0; border: 0; background: none; font: inherit; cursor: pointer; }
+a:focus-visible, button:focus-visible { outline: 1px solid currentColor; outline-offset: 7px; }
+.scene { position: fixed; inset: 0; overflow: hidden; isolation: isolate; touch-action: none; }
+.photograph { position: absolute; inset: -36px; background-image: var(--photograph); background-position: var(--photo-position); background-size: cover; background-repeat: no-repeat; filter: saturate(.43) contrast(.78) brightness(1.08); }
+.photograph--blurred { filter: blur(var(--blur)) saturate(.43) contrast(.78) brightness(1.08); }
+/* Fixed middle distance keeps the default image recognizable. */
+.photograph--middle { filter: blur(4px) saturate(.43) contrast(.78) brightness(1.08); opacity: .55; -webkit-mask-image: radial-gradient(ellipse 60% 44% at 66% 56%, #000 0%, #0009 28%, transparent 88%); mask-image: radial-gradient(ellipse 60% 44% at 66% 56%, #000 0%, #0009 28%, transparent 88%); }
+.reveal { position: absolute; inset: 0; opacity: 0; will-change: mask-position, opacity;
+  /* Uneven overlapping lobes fade from the center, with no hard rim. */
+  --aperture: radial-gradient(ellipse at 46% 54%, #000e 0%, #000c 9%, #0009 22%, #0005 37%, #0002 53%, transparent 72%), radial-gradient(ellipse at 64% 34%, #0005 0%, #0003 17%, transparent 57%), radial-gradient(ellipse at 30% 67%, #0005 0%, transparent 51%);
+  -webkit-mask-image: var(--aperture); mask-image: var(--aperture);
+  -webkit-mask-size: var(--reveal-width) var(--reveal-height); mask-size: var(--reveal-width) var(--reveal-height);
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: var(--mask-x, 50%) var(--mask-y, 50%); mask-position: var(--mask-x, 50%) var(--mask-y, 50%);
+}
+.atmosphere { position: absolute; inset: 0; background: rgba(151, 183, 205, .29); pointer-events: none; }
+.fog { position: absolute; inset: -14%; pointer-events: none; will-change: transform; }
+.fog--near { opacity: .68; background: radial-gradient(ellipse 46% 32% at 12% 18%, #c8d9e4c9 0%, #c3d7e27a 40%, transparent 100%), radial-gradient(ellipse 53% 24% at 61% 94%, #c0d5e0e6 0%, #bdd1de88 45%, transparent 100%); animation: drift-near 42s ease-in-out infinite alternate; }
+.fog--far { opacity: .54; background: radial-gradient(ellipse 30% 45% at 92% 40%, #b7ccd8c9 0%, #b7ccd855 40%, transparent 100%), radial-gradient(ellipse 40% 25% at 39% 31%, #c3d6e28c 0%, transparent 100%); animation: drift-far 57s ease-in-out infinite alternate; }
+.grain { position: absolute; inset: 0; pointer-events: none; background: url("assets/grain.svg"); opacity: .055; mix-blend-mode: multiply; }
+.header { position: fixed; inset: 0 0 auto; display: flex; justify-content: space-between; align-items: flex-start; padding: 35px 38px; z-index: 2; pointer-events: none; }
+.header a, .header button { pointer-events: auto; }
+.identity { display: flex; align-items: baseline; gap: 12px; letter-spacing: .17em; font-size: 15px; }
+.identity span { font-size: 12px; letter-spacing: .055em; }
+nav { display: flex; gap: 29px; letter-spacing: .035em; }
+nav a, nav button { min-height: 32px; display: inline-flex; align-items: flex-start; gap: 5px; }
+nav span { opacity: .76; }
+nav a:hover, nav button:hover { opacity: .65; }
+.about { position: fixed; z-index: 3; top: 104px; right: 38px; max-width: calc(100vw - 48px); line-height: 1.9; text-align: right; font-size: 12px; text-shadow: 0 1px 12px #d3e1e8; }
+.about p { margin: 0 0 20px; }
+.about p[lang] { opacity: .8; }
+.footer { position: fixed; inset: auto 38px 24px; display: flex; justify-content: space-between; align-items: end; gap: 16px; z-index: 2; pointer-events: none; font-size: 11px; letter-spacing: .055em; }
+.footer p { margin: 0; line-height: 1.8; }
+.work-number { margin-right: 18px; font-size: 10px; }
+.english-title { display: block; margin-left: 41px; font-size: 10px; opacity: .75; letter-spacing: .035em; }
+.interaction-hint { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); opacity: .65; transition: opacity 2s; white-space: nowrap; font-size: 10px; }
+body.has-interacted .interaction-hint { opacity: 0; }
+.image-error { position: fixed; left: 38px; bottom: 90px; font-size: 12px; }
+@keyframes drift-near { to { transform: translate3d(3%, -2%, 0) scale(1.04); } }
+@keyframes drift-far { to { transform: translate3d(-4%, 3%, 0) scale(1.03); } }
+body.is-hidden .fog { animation-play-state: paused; }
+@media (max-width: 640px) {
+  :root { --blur: 12px; --reveal-width: 145vw; --reveal-height: 75vh; --photo-position: 66% 50%; }
+  .header { padding: max(25px, env(safe-area-inset-top)) 22px 20px; }
+  .identity { font-size: 14px; flex-direction: column; gap: 5px; }
+  .identity span { font-size: 10px; }
+  nav { gap: 18px; font-size: 11px; }
+  nav a, nav button { min-height: 44px; }
+  nav span { display: none; }
+  .about { right: 22px; top: 100px; }
+  .footer { left: 22px; right: 22px; bottom: max(23px, env(safe-area-inset-bottom)); }
+  .edition { max-width: 95px; text-align: right; font-size: 9px; }
+  .interaction-hint { bottom: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fog { animation: none; }
+  .interaction-hint { transition: none; }
+}
+@supports not ((mask-image: radial-gradient(black, transparent)) or (-webkit-mask-image: radial-gradient(black, transparent))) {
+  .reveal { display: none; }
+  .photograph--middle { opacity: .38; }
+  .interaction-hint { display: none; }
+}

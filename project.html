@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="项目介绍与作品影像。">
+  <title>Project — Untitled</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="portfolio.css">
+  <script src="data/site.js" defer></script>
+  <script src="data/projects.js" defer></script>
+  <script src="portfolio.js" defer></script>
+</head>
+<body data-page="project">
+  <a class="skip-link" href="#project-content">跳到项目内容</a>
+  <header class="header">
+    <a class="identity" href="index.html" aria-label="返回首页">无题<span>untitled</span></a>
+    <nav aria-label="主要导航"><a class="work-link" href="index.html#works">作品 <span lang="en">/ works</span></a><a href="about.html">关于 <span lang="en">/ about</span></a></nav>
+  </header>
+  <main id="project-content" class="project-page editorial"><noscript>请开启 JavaScript 查看项目内容。</noscript></main>
+  <dialog class="lightbox" aria-label="作品大图" aria-describedby="lightbox-caption">
+    <button class="lightbox-close" type="button" aria-label="关闭大图">关闭 / Close ×</button>
+    <button class="lightbox-prev" type="button" aria-label="上一张">←</button>
+    <figure class="lightbox-figure"><img class="lightbox-image" alt=""><figcaption id="lightbox-caption" aria-live="polite"></figcaption></figure>
+    <button class="lightbox-next" type="button" aria-label="下一张">→</button>
+  </dialog>
+</body>
+</html>

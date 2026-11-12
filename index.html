@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#a7bdc9">
+  <meta name="description" content="无题 — 摄影与观察。雾气之间，缓慢看见。">
+  <title>无题 / Untitled — Photography</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="portfolio.css">
+  <script src="data/site.js" defer></script>
+  <script src="data/projects.js" defer></script>
+  <script src="portfolio.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#works">跳到作品</a>
+  <main>
+  <section id="home" class="scene" aria-label="摄影作品：雾中的风景">
+    <div class="photograph photograph--blurred" aria-hidden="true"></div>
+    <div class="photograph photograph--middle" aria-hidden="true"></div>
+    <div class="reveal" aria-hidden="true"><div class="photograph photograph--clear"></div></div>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <div class="fog fog--near" aria-hidden="true"></div>
+    <div class="fog fog--far" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+  <footer class="footer">
+    <p><span class="work-number">001</span> <span>雾的另一侧</span><span class="english-title" lang="en">The other side of stillness</span></p>
+    <p class="interaction-hint">缓慢移动，慢慢看见</p>
+    <p class="edition" lang="en">Selected photograph · 2026</p>
+  </footer>
+  <p class="image-error" role="status" hidden>照片暂时无法加载，请检查 data/site.js 中的 heroImage 路径。</p>
+  </section>
+  <section id="works" class="works editorial" aria-labelledby="works-title">
+    <div class="section-heading"><h1 id="works-title">Selected works</h1><span class="project-count" aria-live="polite"></span></div>
+    <div class="filters" role="group" aria-label="作品分类"></div>
+    <div class="works-grid"></div>
+    <p class="empty-state" hidden>这个分类的作品尚未加入。</p>
+    <noscript>请开启 JavaScript 查看作品列表。</noscript>
+  </section>
+  </main>
+  <header class="header">
+    <a class="identity" href="index.html" aria-label="无题，返回首页">无题<span>untitled</span></a>
+    <nav aria-label="主要导航">
+      <a href="#works" class="work-link">作品 <span lang="en">/ works</span></a>
+      <a href="about.html">关于 <span lang="en">/ about</span></a>
+    </nav>
+  </header>
+</body>
+</html>

@@ -1,0 +1,13 @@
+  {
+    id: "project-05",
+    number: "05",
+    title: "你的项目名称",
+    year: "2026",
+    category: ["Graphic"],
+    description: ["第一段项目介绍。", "第二段项目介绍。"],
+    credits: "",
+    cover: { type: "image", src: "assets/images/projects/project-05/cover.jpg", alt: "封面说明", width: 1600, height: 1000 },
+    media: [
+      { layout: "full", type: "image", src: "assets/images/projects/project-05/01.jpg", alt: "作品说明", width: 1600, height: 1000 }
+    ]
+  },
