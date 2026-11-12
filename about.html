@@ -6,6 +6,9 @@
   <meta name="description" content="KuAKuA — 关于、个人简介与联系方式。">
   <title>KuAKuA</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="portfolio.css">
   <script src="data/site.js" defer></script>
@@ -14,9 +17,15 @@
 </head>
 <body data-page="about">
   <a class="skip-link" href="#about-content">跳到个人介绍</a>
-  <header class="header">
+  <header class="header site-header">
     <a class="identity" href="index.html" aria-label="KuAKuA，返回首页">KuAKuA<span></span></a>
-    <nav aria-label="主要导航"><a class="work-link" href="index.html#works">作品 <span lang="en">/ works</span></a><a href="about.html" aria-current="page">关于 <span lang="en">/ about</span></a></nav>
+    <nav class="primary-nav" aria-label="主要导航">
+      <a href="index.html#works" class="work-link">Works</a>
+      <a href="index.html?category=Photography#works" class="photography-link">Photography</a>
+      <span class="nav-placeholder" aria-label="Story，页面筹备中" title="Story · Coming soon">Story</span>
+      <a href="about.html" aria-current="page">About</a>
+    </nav>
+    <a class="contact-link" href="about.html#about-content" aria-label="前往 About 页面查看联系方式">Contact</a>
   </header>
   <main id="about-content" class="about-page editorial"><noscript>请开启 JavaScript 查看个人介绍。</noscript></main>
 </body>
