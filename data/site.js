@@ -1,7 +1,7 @@
 // 日常编辑从这里开始。保留引号、逗号和括号；空字段不会显示。
 window.PORTFOLIO_SITE = {
-  name: "无题",
-  nameEnglish: "untitled",
+  name: "KuAKuA",
+  nameEnglish: "",
   heroImage: "assets/images/hero/hero.jpg",
   heroTitle: "雾的另一侧",
   heroTitleEnglish: "The other side of stillness",
@@ -12,7 +12,7 @@ window.PORTFOLIO_SITE = {
   heroPositionMobile: "60% 100%",
   categories: ["Graphic", "Motion", "Photography", "Experimental"],
   about: {
-    name: "无题 / Untitled",
+    name: "KuAKuA",
     biography: [
       "摄影、片段，以及尚未命名的观察。",
       "在静态与运动之间，记录形式、时间与日常。这里将慢慢收集我的平面、影像、摄影与实验作品。"

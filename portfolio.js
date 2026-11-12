@@ -10,6 +10,7 @@
     document.querySelector('main').append(message);
     return;
   }
+  const siteName = site.name || 'KuAKuA';
   const page = document.body.dataset.page;
   const query = new URLSearchParams(location.search);
   const categories = [...new Set((site.categories || []).filter(value => value && value !== 'All'))];
@@ -34,10 +35,10 @@
   const projectURL = (project, category = '') => `project.html?id=${encodeURIComponent(project.id)}${category && category !== 'All' ? `&category=${encodeURIComponent(category)}` : ''}`;
   const worksURL = category => `index.html${category && categories.includes(category) ? `?category=${encodeURIComponent(category)}` : ''}#works`;
   document.querySelectorAll('.identity').forEach(identity => {
-    identity.replaceChildren(document.createTextNode(site.name || '无题'), el('span', '', site.nameEnglish || ''));
-    identity.setAttribute('aria-label', `${site.name || '无题'}，返回首页`);
+    identity.replaceChildren(document.createTextNode(siteName), el('span', '', site.nameEnglish || ''));
+    identity.setAttribute('aria-label', `${siteName}，返回首页`);
   });
-  document.title = `${page === 'about' ? 'About — ' : ''}${site.name || 'Untitled'} / ${site.nameEnglish || 'Portfolio'}`;
+  document.title = siteName;
   if (page !== 'home') document.querySelectorAll('.work-link').forEach(link => { link.href = worksURL(query.get('category')); });
 
   // Videos get a src only near the viewport; only visible automatic videos play.
@@ -211,10 +212,10 @@
     if (!project) {
       const missing = el('section', 'not-found');
       missing.append(el('h1', '', '项目尚未加入'), el('p', '', '这个地址没有对应作品。请返回 Works 查看现有项目。'));
-      parent.append(missing); document.title = `项目未找到 — ${site.name}`; return;
+      parent.append(missing); document.title = siteName; return;
     }
-    document.title = `${project.title} — ${site.name}`;
-    document.querySelector('meta[name="description"]').content = lines(project.description).join(' ').slice(0, 180);
+    document.title = siteName;
+    document.querySelector('meta[name="description"]').content = `${siteName} — ${lines(project.description).join(' ')}`.slice(0, 180);
     const intro = el('section', 'project-intro');
     const meta = el('div', 'project-meta');
     meta.append(el('p', 'project-number', project.number), el('h1', '', project.title), el('p', '', project.year), el('p', '', project.category.join(' / ')));

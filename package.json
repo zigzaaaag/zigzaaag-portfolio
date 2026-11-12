@@ -1,7 +1,7 @@
 {
-  "name": "untitled-photography",
+  "name": "kuakua-photography",
   "version": "2.0.0",
   "private": true,
-  "description": "A quiet photographic portfolio, seen through fog.",
+  "description": "KuAKuA — A quiet photographic portfolio, seen through fog.",
   "scripts": { "dev": "node server.cjs", "start": "node server.cjs", "check": "node tools/check.cjs", "test": "node --test tests/server.test.cjs" }
 }
