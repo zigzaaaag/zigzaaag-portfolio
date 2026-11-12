@@ -1,6 +1,6 @@
 # KuAKuA — Website Architecture / Phase 01
 
-Status: proposed architecture; implementation pending visual review.
+Status: first-pass navigation, type and Works index implemented on dev; visual QA pending.
 Primary visual reference: https://wangshuo.design/about/ (study hierarchy, whitespace, typography, navigation; do not copy assets or code).
 Secondary references: https://www.zhaomengjia.com/works (index); https://www.zhaomengjia.com/works/biophilia (detail); https://xiaoyueshen.com/ (editorial rhythm); https://boningyu.cargo.site/ (mixed media); https://sasasa.com/ (fog interactions).
 
@@ -15,7 +15,7 @@ Preserve existing working routes until tested. No route rewrites solely for aest
 
 ## Navigation
 
-Single shared header: KuAKuA (home), Works, About. Works filters are secondary navigation, not top-level routes. Mobile navigation stays accessible. Keyboard focus states required.
+Single shared header follows reference screenshot: KuAKuA (left), Works / Photography / Story (reserved, non-interactive) / About (center), Contact (outlined pill, right). Photography navigates to its Works filter; Contact goes to About until contact details are provided. Works filters are secondary pill-shaped navigation. Mobile navigation must stay accessible. Keyboard focus states required.
 
 ## Visual tokens (proposed, adjust after preview)
 
